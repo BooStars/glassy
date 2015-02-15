@@ -55,7 +55,7 @@
 		</area>
 		
 <!-- showClock background -->
-		<area condition="eq({showClock},1)" x="67%" y="30%" width="14%" height="17%" layer="1">
+		<area condition="eq({showClock},1)" x="67%" y="29%" width="14%" height="17%" layer="1">
 			<drawimage name="glass_bg_dash_630x270" imagetype="skinpart" path="glass_bg_dash_630x270" x="0%" y="0%" width="{areawidth}" height="{areaheight}"  />			
 		</area>
 		<area condition="eq({showClock},1)" x="70%" y="31%" width="8%" height="{areawidth}*0.08" layer="4">

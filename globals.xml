@@ -43,10 +43,10 @@
     -->
     <variables>
 	<var type="int" name="timerPosX">44</var>
-	<var type="int" name="timerPosY">49</var>
+	<var type="int" name="timerPosY">48</var>
 	
 	<var type="int" name="weatherPosX">44</var>
-	<var type="int" name="weatherPosY">30</var>
+	<var type="int" name="weatherPosY">29</var>
 	
 	
 		
