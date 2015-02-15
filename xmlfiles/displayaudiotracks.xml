@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE displayaudiotracks SYSTEM "../../../dtd/displayaudiotracks.dtd">
+
+<displayaudiotracks x="25%" y="0" width="50%" height="100%" fadetime="{fadeTime}">
+
+    <background>
+        <area x="0" y="{areaheight} - {numtracks} * {areaheight} / 10 - {areaheight} / 10" width="100%" height="{areaheight} / 10 + {areaheight} / 10 * {numtracks}" layer="1">
+           	<drawimage name="glass_bg_960x250" imagetype="skinpart" path="glass_bg_960x250" x="0" y="0" width="{areawidth}" height="{areaheight}"  />
+        </area>
+		<area condition="gt({opacity}, 0)" x="0" y="{areaheight} - {numtracks} * {areaheight} / 10 - {areaheight} / 10" width="100%" height="{areaheight} / 10 + {areaheight} / 10 * {numtracks}" layer="1">
+           	<drawimage name="glass_bg_960x250" imagetype="skinpart" path="glass_bg_960x250" x="0" y="0" width="{areawidth}" height="{areaheight}"  />
+        </area>
+		<area condition="gt({opacity}, 1)" x="0" y="{areaheight} - {numtracks} * {areaheight} / 10 - {areaheight} / 10" width="100%" height="{areaheight} / 10 + {areaheight} / 10 * {numtracks}" layer="1">
+           	<drawimage name="glass_bg_960x250" imagetype="skinpart" path="glass_bg_960x250" x="0" y="0" width="{areawidth}" height="{areaheight}"  />
+        </area>
+		<area condition="gt({opacity}, 2)" x="0" y="{areaheight} - {numtracks} * {areaheight} / 10 - {areaheight} / 10" width="100%" height="{areaheight} / 10 + {areaheight} / 10 * {numtracks}" layer="1">
+           	<drawimage name="glass_bg_960x250" imagetype="skinpart" path="glass_bg_960x250" x="0" y="0" width="{areawidth}" height="{areaheight}"  />
+        </area>
+	
+
+    </background>
+
+    <header>
+         <area x="0" y="{areaheight} - {numtracks} * {areaheight} / 10 - {areaheight} / 10" width="100%" height="{areaheight} / 10" layer="2">
+            <drawtext align="center" valign="center" font="{vdrOsd}" fontsize="80%" color="{clrGrey}" text="{title}" />
+            <drawimage name="stereo" condition="{isstereo}" imagetype="icon" path="stereo_on" x="{areawidth} - {width(stereo)}" valign="center" width="{areawidth}/8" height="{areawidth}/9"/>
+            <drawimage name="dd" condition="{isac3}" imagetype="icon" path="dd_on" x="{areawidth} - {width(dd)}" valign="center" width="{areawidth}/8" height="{areawidth}/9"/>
+        </area>
+    </header>
+
+
+     <menuitems x="0" y="{areaheight} - {numelements} * {areaheight} / 10" orientation="vertical" width="100%" height="{numelements} * {areaheight} / 10" align="top" numlistelements="{numelements}">
+   
+        <listelement>
+            <!-- Background -->
+             <area x="1%" width="98%" layer="2">
+			<drawimage  condition="{current}" name="glass_fg_728x66_current" imagetype="skinpart" path="glass_fg_728x66_current" x="0" y="0" width="{areawidth}" height="{areaheight}"/>
+			<drawimage condition="not{current}" name="glass_fg_728x66" imagetype="skinpart" path="glass_fg_728x66" x="0" y="0" width="{areawidth}" height="{areaheight}"/>	
+
+		</area>
+         
+            <area x="1%" width="98%" layer="3">
+                <drawtext align="center" valign="center" font="{vdrOsd}" fontsize="60%" color="{clrWhite}" text="{title}" />
+            </area>
+        </listelement>
+    </menuitems>
+
+</displayaudiotracks>

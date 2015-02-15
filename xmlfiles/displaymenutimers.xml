@@ -1,0 +1,111 @@
+<menutimers x="0" y="0" width="100%" height="100%" fadetime="{fadeTime}">
+<background>
+<!-- opacity background -->
+		<area condition="eq({opacity}, 3)"  x="0" y="0" width="100%" height="100%" layer="1">
+			<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}" color="{clrBlack}" />
+		</area>
+		<area condition="eq({opacity}, 2)"  x="0" y="0" width="100%" height="100%" layer="1">
+			<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}" color="{clrTransBlack}" />
+		</area>
+		<area condition="eq({opacity}, 1)"  x="0" y="0" width="100%" height="100%" layer="1">
+			<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}" color="{clrSemiTransBlack}" />
+		</area>
+		
+	<!-- header background -->
+		<area x="0" y="2%" width="100%" height="8%" layer="1">
+			<drawimage name="glass_bg_1500x100" imagetype="skinpart" path="glass_bg_1500x100" x="0" y="0" width="{areawidth}" height="{areaheight}"  />
+		</area>
+
+	<!-- date background -->
+		<area x="69%" y="2%" width="30%" height="8%" layer="2">
+			<drawimage name="glass_fg_date" imagetype="skinpart" path="glass_fg_date" x="0" y="0" width="{areawidth}" height="{areaheight}"/>
+		</area>
+		
+	<!-- list background -->
+		<area  x="0" y="14%" width="70%" height="72%" layer="2">
+			<drawimage name="glass_bg_menu_1232x1000" imagetype="skinpart" path="glass_bg_menu_1232x1000" x="0" y="0" width="{areawidth}" height="{areaheight}"  />
+		</area>
+		
+	<!-- button background -->
+		<area x="0%" y="90%" width="100%" height="8%" layer="1">
+			<drawimage name="glass_bg_1500x100" imagetype="skinpart" path="glass_bg_1500x100" x="0" y="0" width="{areawidth}" height="{areaheight}"  />
+	    </area>
+		
+<!-- detail background -->
+		<area condition="eq({showDetailRecordings},1)" x="71%" y="14%" width="29%" height="72%" layer="1">
+			<drawimage name="glass_bg_detail" imagetype="skinpart" path="glass_bg_detail" x="0%" y="0%" width="{areawidth}" height="{areaheight}"  />	
+		</area>
+		
+</background>
+
+<scrollbar>
+		<area x="{areawidth}/{areawidth}*2" y="{areaheight}/4.46" width="{areawidth}/{areawidth}*29" height="{areaheight}/1.81" layer="2">
+			<drawrectangle x="{areawidth}/{areawidth}*5" y="{areaheight} * {offset} / 1000" width="{areawidth}/1.3" height="{areaheight} * {height} / 1000" color="{clrDarkGrey}" />
+		</area>
+</scrollbar>
+
+<menuitems x="0" y="18%" orientation="vertical" width="100%" height="65%" numlistelements="10">
+<listelement>
+	<area x="2%" width="67%" layer="4">
+		<drawimage  condition="{current}" name="glass_fg_1314x66_current" imagetype="skinpart" path="glass_fg_1314x66_current" x="0" y="0" width="{areawidth}" height="{areaheight}"/>	
+		<drawimage condition="not{current}" name="glass_fg_1314x66" imagetype="skinpart" path="glass_fg_1314x66" x="0" y="0" width="{areawidth}" height="{areaheight}"/>
+	</area>
+         
+         
+<!--icon + day -->
+	<area x="2%" width="23%" layer="4">
+		
+			 <drawimage condition="not{current}++{flagactive}" name="active" imagetype="icon" path="ico_timer_active" x="5%" width="0.6*{areaheight}" height="0.6*{areaheight}" valign="center" />
+             <drawimage condition="{current}++{flagactive}" name="active" imagetype="icon" path="ico_timer_active" x="4%" width="0.7*{areaheight}" height="0.7*{areaheight}" valign="center" />
+             
+			 <drawimage condition="not{current}++not{flagactive}" name="active" imagetype="icon" path="ico_timer_inactive" x="5%" width="0.6*{areaheight}" height="0.6*{areaheight}" valign="center" />
+             <drawimage condition="{current}++not{flagactive}" name="active" imagetype="icon" path="ico_timer_inactive" x="4%" width="0.7*{areaheight}" height="0.7*{areaheight}" valign="center" />
+             
+			 <drawimage condition="not{current}++{flagrecording}" name="active" imagetype="icon" path="ico_timer_recording" x="5%" width="0.6*{areaheight}" height="0.6*{areaheight}" valign="center" />
+			 <drawimage condition="{current}++{flagrecording}" name="active" imagetype="icon" path="ico_timer_recording" x="4%" width="0.7*{areaheight}" height="0.7*{areaheight}" valign="center" />
+			 
+			 
+			 <drawtext condition="not{current}" name="timerday" x="{posx(active)}*2++{width(active)}*1.2" valign="center" font="{vdrOsd}" fontsize="55%" color="{clrWhite}" text="{dayname} {day} {timerstart}-{timerstop}" />	 
+			 <drawtext condition="{current}" name="timerday" x="{posx(active)}*2++{width(active)}*0.6" valign="center" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{dayname} {day} {timerstart}-{timerstop}" />	 
+		
+		</area>
+		
+	<areascroll scrollelement="timertext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="26%" width="42%" layer="5">	
+		<drawtext condition="not{current}" name="timertext" x="0" valign="center" font="{vdrOsd}" fontsize="55%" color="{clrGrey}" text="{title}" />
+		<drawtext condition="{current}" name="timertext" x="0" valign="center" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{title}" />
+	</areascroll>
+
+</listelement>
+<currentelement delay="250" fadetime="{fadeTime}">
+	<area condition="eq({showDetailRecordings},1)" x="72%" y="12%" width="26%" height="30%" layer="2">
+<!-- text infobar -->
+	
+        <drawtext name="title" x="0" y="0" font="{vdrOsd}" width="{areawidth}" fontsize="25%" color="{clrTheme}" text="{title}" />
+		<drawtext name="shorttext" x="0" y="{height(title)}" font="{vdrOsd}" width="{areawidth}" fontsize="20%" color="{clrWhite}" text="{eventshorttext}" />
+		
+       <drawtext x="0" y="{posy(shorttext)}+{height(title)}+{height(title)}/8" font="{vdrOsd}" fontsize="15%" color="{clrWhite}" text="{dayname} {day}.{month} {timerstart} - {timerstop}" />
+		
+	</area>
+
+    <areascroll condition="eq({showDetailRecordings},1)" mode="forthandback" orientation="vertical" delay="1000" scrollspeed="medium" x="72%" y="33%" width="26%" height="70%" layer="2">
+	<drawimage  condition="{hasposter}" name="poster" imagetype="image" path="{posterpath}" x="0" y="0" align="right" valign="top" width="{areaheight} * 0.5  * {posterwidth} / {posterheight}" height="{areaheight} * 0.5"/>	
+	
+	<drawtextbox x="0" y="0" width="95%" height="{areaheight} - {posy(poster)}" float="topright" floatwidth="{width(poster)} + 10" floatheight="{height(poster)} + 20"  font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{eventdescription}" />
+	</areascroll>
+
+			
+<!-- channellogo  -->
+	<area condition="eq({showDetailTimers},1)" x="72%" y="0%" width="26%" height="30%" layer="3">
+	          <drawtext condition="not{channellogoexists}" align="center" valign="center" font="{vdrOsd}" fontsize="50%" color="{clrWhite}" text="{channelnumber}" />
+		      <drawimage cache="true" condition="{channellogoexists}" imagetype="channellogo" path="{channelid}" align="left" valign="top" width="{areawidth}/3" height="{areaheight}/3" />
+    
+	</area> 
+		
+	
+		
+
+</currentelement>
+</menuitems>
+
+	
+</menutimers>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE displayvolume SYSTEM "../../../dtd/displayvolume.dtd">
+
+<displayvolume  x="0" y="75%" width="100%" height="25%" fadetime="{fadeTime}">
+<background>
+	<area x="{areawidth}/4" y="0" width="50%" height="{areaheight}" layer="1">
+	   	<drawimage name="glass_bg_960x250" imagetype="skinpart" path="glass_bg_960x250" x="0" y="0" width="{areawidth}" height="{areaheight}"  />   		 
+	</area>
+	
+	<area condition="gt({opacity}, 0)"  x="{areawidth}/4" y="0" width="50%" height="{areaheight}" layer="2">
+		<drawimage name="glass_bg_960x250" imagetype="skinpart" path="glass_bg_960x250" x="0" y="0" width="{areawidth}" height="{areaheight}"  />   
+	</area>
+	<area condition="gt({opacity}, 1)"  x="{areawidth}/4" y="0" width="50%" height="{areaheight}" layer="3">
+		   <drawimage name="glass_bg_960x250" imagetype="skinpart" path="glass_bg_960x250" x="0" y="0" width="{areawidth}" height="{areaheight}"  />      
+	</area>
+	<area condition="gt({opacity}, 2)" x="{areawidth}/4" y="0" width="50%" height="{areaheight}" layer="4">
+		   <drawimage name="glass_bg_960x250" imagetype="skinpart" path="glass_bg_960x250" x="0" y="0" width="{areawidth}" height="{areaheight}"  />   	   
+	</area>
+	
+
+</background>
+
+<volume>
+	<area x="{areawidth}/4" y="5%" width="50%" height="{areaheight}" layer="5">
+    <drawtext name="volume" x="1%" valign="top" font="{vdrOsd}" fontsize="30%" color="{clrWhite}" text="{tr(volume)}: {volpercent}%" />
+    <drawimage name="muteoff" condition="not{mute}" imagetype="icon" path="mute_off" x="{areawidth} - {width(muteoff)}" y="{posy(volume)}" width="{areawidth}/8" height="{height(volume)}"/>
+    <drawimage name="mute" condition="{mute}" imagetype="icon" path="mute_on" x="{areawidth} - {width(mute)}" y="{posy(volume)}" width="{areawidth}/8" height="{height(volume)}"/>
+    </area>
+     
+	<area x="26%" y="55%" width="48%" height="5%" layer="5">
+	<drawrectangle name="sb1" x="0" y="0" valign="center" width="{areawidth}-{posx(sb1)}" height="{areaheight}/8" color="{clrWhite}" />
+    <drawrectangle name="sb1" x="0" y="0" valign="center" width="{volume}/{maxvolume}*{areawidth}" height="{areaheight}" color="{clrTheme}" />
+    </area>        
+</volume>
+
+</displayvolume>
+
+
+	

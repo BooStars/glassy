@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE displaymenu SYSTEM "../../../dtd/displaymenu.dtd" [
+<!ENTITY displaymenudefault SYSTEM "displaymenudefault.xml">
+<!ENTITY displaymenumain SYSTEM "displaymenumain.xml">
+<!ENTITY displaymenusetup SYSTEM "displaymenusetup.xml">
+<!ENTITY displaymenuschedules SYSTEM "displaymenuschedules.xml">
+<!ENTITY displaymenutimers SYSTEM "displaymenutimers.xml">
+<!ENTITY displaymenuchannels SYSTEM "displaymenuchannels.xml">
+<!ENTITY displaymenurecordings SYSTEM "displaymenurecordings.xml">
+<!ENTITY displaymenudetailepg SYSTEM "displaymenudetailepg.xml">
+<!ENTITY displaymenudetailrecording SYSTEM "displaymenudetailrecording.xml">
+<!ENTITY displaymenudetailtext SYSTEM "displaymenudetailtext.xml">
+]>
+
+<displaymenu  x="0" y="0" width="100%" height="100%" fadetime="{fadeTime}">
+<background>
+	<!-- opacity background -->
+		<area condition="eq({opacity}, 3)"  x="0" y="0" width="100%" height="100%" layer="1">
+			<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}" color="{clrBlack}" />
+		</area>
+		<area condition="eq({opacity}, 2)"  x="0" y="0" width="100%" height="100%" layer="1">
+			<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}" color="{clrTransBlack}" />
+		</area>
+		<area condition="eq({opacity}, 1)"  x="0" y="0" width="100%" height="100%" layer="1">
+			<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}" color="{clrSemiTransBlack}" />
+		</area>
+		
+
+	<!-- header background -->
+		<area x="0" y="2%" width="100%" height="8%" layer="1">
+			<drawimage name="glass_bg_1500x100" imagetype="skinpart" path="glass_bg_1500x100" x="0" y="0" width="{areawidth}" height="{areaheight}"  />
+		</area>
+		
+	<!-- date background -->
+		<area x="69%" y="2%" width="30%" height="8%" layer="2">
+			<drawimage name="glass_fg_date" imagetype="skinpart" path="glass_fg_date" x="0" y="0" width="{areawidth}" height="{areaheight}"/>
+		</area>
+		
+	<!-- list background -->
+		<area  x="0" y="14%" width="45%" height="72%" layer="2">
+			<drawimage name="glass_bg_menu_726x1000" imagetype="skinpart" path="glass_bg_menu_726x1000" x="0" y="0" width="{areawidth}" height="{areaheight}"  />		
+		</area>
+		
+	<!-- button background -->
+		<area x="0%" y="90%" width="100%" height="8%" layer="1">
+			<drawimage name="glass_bg_1500x100" imagetype="skinpart" path="glass_bg_1500x100" x="0" y="0" width="{areawidth}" height="{areaheight}"  />
+	    </area>
+		
+	
+</background> 
+
+<header>
+	<area x="1%" y="3%" width="70%" height="6%" layer="2">
+		<drawtext  condition="not{hasicon}" x="0" width="{areawidth}" valign="center" font="{vdrOsd}" fontsize="90%" color="{clrWhite}" text="{title}" />
+		<drawimage  condition="{hasicon}" name="menuicon" imagetype="menuicon" path="{icon}" x="0" valign="center" width="{areaheight}" height="{areaheight}"/>
+		<drawtext  condition="{hasicon}" x="{width(menuicon)}" valign="center" width="{areawidth}-{areaheight}" font="{vdrOsd}" fontsize="90%" color="{clrWhite}" text="{title}" />
+	</area>
+</header>
+
+
+<datetime>
+	<area x="70%" y="3%" width="29%" height="6%" layer="3">
+		<drawtext name="dayname" align="center" valign="center" x="0" y="0" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{dayname} {day}.{monthnameshort} {time}" />
+    </area>
+</datetime>
+
+
+
+<message>
+	<area x="0" y="90%" width="100%" height="10%" layer="5">
+			<drawimage name="glass_bg_message" imagetype="skinpart" path="glass_bg_message" x="0" y="0" width="{areawidth}" height="{areaheight}"  />
+		</area>
+		<area x="{areawidth}/{areawidth}*10" y="91%" width="99%" height="8%" layer="6">  
+				  
+		<drawimage condition="{error}" name="glass_message_red" imagetype="skinpart" path="glass_message_red" x="0" valign="bottom" width="100%" height="100%"/>
+		<drawimage condition="{status}" name="glass_message_green" imagetype="skinpart" path="glass_message_green" x="0" valign="bottom" width="100%" height="100%"/>
+		<drawimage condition="{warning}" name="glass_message_yellow" imagetype="skinpart" path="glass_message_yellow" x="0" valign="bottom" width="100%" height="100%"/>
+		<drawimage condition="{info}" name="glass_message_blue" imagetype="skinpart" path="glass_message_blue" x="0" valign="center" width="100%" height="100%"/>
+	
+		
+	</area>
+	<area x="1%" y="91%" width="98%" height="8%" layer="7"> 
+		<drawtext align="center" valign="center" font="{vdrOsd}" fontsize="50%" color="{clrWhite}" text="{text}" />
+	</area>
+</message>
+
+<colorbuttons>
+	
+	<area x="4%" y="91%" width="20%" height="6%" layer="2">
+		<drawimage condition="{yellow1}" name="yellow" imagetype="skinpart" path="button_yellow" x="0" valign="center" width="100%" height="100%"/>
+		<drawimage condition="{red1}" name="red" imagetype="skinpart" path="button_red" x="0" valign="center" width="100%" height="100%"/>
+		<drawimage condition="{blue1}" name="blue" imagetype="skinpart" path="button_blue" x="0" valign="center" width="100%" height="100%"/>
+		<drawimage condition="{green1}" name="green" imagetype="skinpart" path="button_green" x="0" valign="center" width="100%" height="100%"/>	
+	</area>
+	
+	<area x="24%" y="91%" width="4%" height="6%" layer="2">
+		<drawimage name="botton_sep" imagetype="skinpart" path="botton_sep" x="0" valign="center" width="100%" height="100%"/>
+	</area>
+
+	<area x="28%" y="91%" width="20%" height="6%" layer="2">
+		<drawimage condition="{yellow2}" name="yellow" imagetype="skinpart" path="button_yellow" x="0" valign="center" width="100%" height="100%"/>
+		<drawimage condition="{red2}" name="red" imagetype="skinpart" path="button_red" x="0" valign="center" width="100%" height="100%"/>
+		<drawimage condition="{blue2}" name="blue" imagetype="skinpart" path="button_blue" x="0" valign="center" width="100%" height="100%"/>
+		<drawimage condition="{green2}" name="green" imagetype="skinpart" path="button_green" x="0" valign="center" width="100%" height="100%"/>
+	</area>
+	
+	<area x="48%" y="91%" width="4%" height="6%" layer="2">
+		<drawimage name="botton_sep" imagetype="skinpart" path="botton_sep" x="0" valign="center" width="100%" height="100%"/>
+	</area>
+
+	
+	<area x="52%" y="91%" width="20%" height="6%" layer="2">
+		<drawimage condition="{yellow3}" name="yellow" imagetype="skinpart" path="button_yellow" x="0" valign="center" width="100%" height="100%"/>
+		<drawimage condition="{red3}" name="red" imagetype="skinpart" path="button_red" x="0" valign="center" width="100%" height="100%"/>
+		<drawimage condition="{blue3}" name="blue" imagetype="skinpart" path="button_blue" x="0" valign="center" width="100%" height="100%"/>
+		<drawimage condition="{green3}" name="green" imagetype="skinpart" path="button_green" x="0" valign="center" width="100%" height="100%"/>
+	</area>
+	<area x="72%" y="91%" width="4%" height="6%" layer="2">
+		<drawimage name="botton_sep" imagetype="skinpart" path="botton_sep" x="0" valign="center" width="100%" height="100%"/>
+	</area>
+
+	<area x="76%" y="91%" width="20%" height="6%" layer="2">
+		<drawimage condition="{yellow4}" name="yellow" imagetype="skinpart" path="button_yellow" x="0" valign="center" width="100%" height="100%"/>
+		<drawimage condition="{red4}" name="red" imagetype="skinpart" path="button_red" x="0" valign="center" width="100%" height="100%"/>
+		<drawimage condition="{blue4}" name="blue" imagetype="skinpart" path="button_blue" x="0" valign="center" width="100%" height="100%"/>
+		<drawimage condition="{green4}" name="green" imagetype="skinpart" path="button_green" x="0" valign="center" width="100%" height="100%"/>
+	</area>
+	
+	
+	
+	<area x="4%" y="92%" width="20%" height="5%" layer="2">
+		<drawtext condition="{yellow1}" align="center" font="{vdrOsd}" fontsize="75%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red1}" align="center" font="{vdrOsd}" fontsize="75%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{green1}" align="center" font="{vdrOsd}" fontsize="75%" color="{clrWhite}" text="{green}" />
+		<drawtext condition="{blue1}" align="center" font="{vdrOsd}" fontsize="75%" color="{clrWhite}" text="{blue}" />
+	</area>
+	
+	<area x="28%" y="92%" width="20%" height="5%" layer="2">
+		<drawtext condition="{yellow2}"  align="center" font="{vdrOsd}" fontsize="75%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red2}" align="center" font="{vdrOsd}" fontsize="75%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue2}" align="center" font="{vdrOsd}" fontsize="75%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green2}" align="center" font="{vdrOsd}" fontsize="75%" color="{clrWhite}" text="{green}" />
+	</area>
+
+	<area x="52%" y="92%" width="20%" height="5%" layer="2">
+		<drawtext condition="{yellow3}" align="center" font="{vdrOsd}" fontsize="75%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red3}" align="center" font="{vdrOsd}" fontsize="75%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue3}" align="center" font="{vdrOsd}" fontsize="75%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green3}" align="center" font="{vdrOsd}" fontsize="75%" color="{clrWhite}" text="{green}" />
+	</area>
+	
+	<area x="76%" y="92%" width="20%" height="5%" layer="2">
+		<drawtext condition="{yellow4}" align="center" font="{vdrOsd}" fontsize="75%" color="{clrWhite}" text="{yellow}" />
+		<drawtext condition="{red4}" align="center" font="{vdrOsd}" fontsize="75%" color="{clrWhite}" text="{red}" />
+		<drawtext condition="{blue4}" align="center" font="{vdrOsd}" fontsize="75%" color="{clrWhite}" text="{blue}" />
+		<drawtext condition="{green4}" align="center" font="{vdrOsd}" fontsize="75%" color="{clrWhite}" text="{green}" />
+	</area>
+</colorbuttons>
+    &displaymenudefault;
+    &displaymenumain;
+    &displaymenusetup;
+    &displaymenuschedules;
+    &displaymenutimers;
+    &displaymenuchannels;
+    &displaymenurecordings;
+    &displaymenudetailepg;
+    &displaymenudetailrecording;
+    &displaymenudetailtext;
+</displaymenu>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE displaymessage SYSTEM "../../../dtd/displaymessage.dtd">
+
+<displaymessage x="0" y="0" width="100%" height="100%" fadetime="{fadeTime}">
+<background>
+
+
+		
+</background>
+<message>
+	<area x="0" y="90%" width="100%" height="10%" layer="5">
+			<drawimage name="glass_bg_message" imagetype="skinpart" path="glass_bg_message" x="0" y="0" width="{areawidth}" height="{areaheight}"  />
+		</area>
+		<area x="{areawidth}/{areawidth}*10" y="91%" width="99%" height="8%" layer="6">  
+				  
+		<drawimage condition="{error}" name="glass_message_red" imagetype="skinpart" path="glass_message_red" x="0" valign="bottom" width="100%" height="100%"/>
+		<drawimage condition="{status}" name="glass_message_green" imagetype="skinpart" path="glass_message_green" x="0" valign="bottom" width="100%" height="100%"/>
+		<drawimage condition="{warning}" name="glass_message_yellow" imagetype="skinpart" path="glass_message_yellow" x="0" valign="bottom" width="100%" height="100%"/>
+		<drawimage condition="{info}" name="glass_message_blue" imagetype="skinpart" path="glass_message_blue" x="0" valign="center" width="100%" height="100%"/>
+	
+		
+	</area>
+	<area x="1%" y="91%" width="98%" height="8%" layer="7"> 
+		<drawtext align="center" valign="center" font="{vdrOsd}" fontsize="50%" color="{clrWhite}" text="{text}" />
+	</area>
+</message>
+</displaymessage>

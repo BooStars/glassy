@@ -1,0 +1,47 @@
+<menudetailedtext x="0" y="0" width="100%" height="100%" fadetime="{fadeTime}">
+<background>
+<!-- opacity background -->
+		<area condition="eq({opacity}, 3)"  x="0" y="0" width="100%" height="100%" layer="1">
+			<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}" color="{clrBlack}" />
+		</area>
+		<area condition="eq({opacity}, 2)"  x="0" y="0" width="100%" height="100%" layer="1">
+			<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}" color="{clrTransBlack}" />
+		</area>
+		<area condition="eq({opacity}, 1)"  x="0" y="0" width="100%" height="100%" layer="1">
+			<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}" color="{clrSemiTransBlack}" />
+		</area>
+	<!-- header background -->
+		<area x="0" y="2%" width="100%" height="8%" layer="1">
+			<drawimage name="glass_bg_1500x100" imagetype="skinpart" path="glass_bg_1500x100" x="0" y="0" width="{areawidth}" height="{areaheight}"  />
+		</area>
+
+	<!-- date background -->
+		<area x="69%" y="2%" width="30%" height="8%" layer="2">
+			<drawimage name="glass_fg_date" imagetype="skinpart" path="glass_fg_date" x="0" y="0" width="{areawidth}" height="{areaheight}"/>
+		</area>
+		
+	<!-- list background -->
+		<area  x="0" y="14%" width="98%" height="75%" layer="2">
+			<drawimage name="glass_bg_menu_detail" imagetype="skinpart" path="glass_bg_menu_detail" x="0" y="0" width="{areawidth}" height="{areaheight}"  />
+		</area>
+		
+	<!-- button background -->
+		<area x="0%" y="90%" width="100%" height="8%" layer="1">
+			<drawimage name="glass_bg_1500x100" imagetype="skinpart" path="glass_bg_1500x100" x="0" y="0" width="{areawidth}" height="{areaheight}"  />
+	    </area>
+
+    </background>
+
+
+
+<scrollbar>
+		<area x="0" y="{areaheight}/4.40" width="{areawidth}/{areawidth}*25" height="{areaheight}/1.84" layer="1">
+			<drawrectangle x="{areawidth}/{areawidth}*3" y="{areaheight} * {offset} / 1000" width="{areawidth}/1.2" height="{areaheight} * {height} / 1000" color="{clrDarkGrey}" />
+		</area>
+</scrollbar>
+   
+
+<tab name="text" x="3%" y="18%" width="93%" height="62%" layer="3" scrollheight="{areaheight}/4">
+	<drawtextbox x="0" y="0" width="{areawidth}" font="{vdrOsd}" fontsize="5%" color="{clrWhite}" text="{text}" />
+</tab>
+</menudetailedtext>

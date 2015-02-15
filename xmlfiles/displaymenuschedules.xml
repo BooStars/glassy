@@ -1,0 +1,229 @@
+<menuschedules x="0" y="0" width="100%" height="100%" fadetime="{fadeTime}">
+<background>
+
+<!-- opacity background -->
+		<area condition="eq({opacity}, 3)"  x="0" y="0" width="100%" height="100%" layer="1">
+			<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}" color="{clrBlack}" />
+		</area>
+		<area condition="eq({opacity}, 2)"  x="0" y="0" width="100%" height="100%" layer="1">
+			<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}" color="{clrTransBlack}" />
+		</area>
+		<area condition="eq({opacity}, 1)"  x="0" y="0" width="100%" height="100%" layer="1">
+			<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}" color="{clrSemiTransBlack}" />
+		</area>
+	<!-- header background -->
+		<area x="0" y="2%" width="100%" height="8%" layer="1">
+			<drawimage name="glass_bg_1500x100" imagetype="skinpart" path="glass_bg_1500x100" x="0" y="0" width="{areawidth}" height="{areaheight}"  />
+		</area>
+
+	<!-- date background -->
+		<area x="69%" y="2%" width="30%" height="8%" layer="2">
+			<drawimage name="glass_fg_date" imagetype="skinpart" path="glass_fg_date" x="0" y="0" width="{areawidth}" height="{areaheight}"/>
+		</area>
+		
+	<!-- list background -->
+		<area  x="0" y="14%" width="70%" height="72%" layer="2">
+			<drawimage name="glass_bg_menu_1232x1000" imagetype="skinpart" path="glass_bg_menu_1232x1000" x="0" y="0" width="{areawidth}" height="{areaheight}"  />
+		</area>
+		
+	<!-- button background -->
+		<area x="0%" y="90%" width="100%" height="8%" layer="1">
+			<drawimage name="glass_bg_1500x100" imagetype="skinpart" path="glass_bg_1500x100" x="0" y="0" width="{areawidth}" height="{areaheight}"  />
+	    </area>
+		
+		
+	<!-- detail background -->
+		<area x="71%" y="14%" width="29%" height="72%" layer="1">
+			<drawimage name="glass_bg_detail" imagetype="skinpart" path="glass_bg_detail" x="0%" y="0%" width="{areawidth}" height="{areaheight}"  />	
+		</area>
+		
+</background>
+
+
+<header>
+   <area x="1%" y="3%" width="70%" height="6%" layer="2">
+		<drawimage condition="{hasicon}" name="menuicon" imagetype="menuicon" path="{icon}" x="0" valign="center" width="{areaheight}" height="{areaheight}"/>
+		<drawtext condition="{hasicon}++{whatson}" x="{width(menuicon)}"  valign="center" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{channelnumber} - {channelname}" />
+		<drawtext condition="{hasicon}++{whatsonnow}" x="{width(menuicon)}" valign="center" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{title}" />
+		<drawtext condition="{hasicon}++{whatsonnext}" x="{width(menuicon)}" valign="center" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{title}" />
+		<drawtext condition="{hasicon}++{whatsonfavorites}" x="{width(menuicon)}" valign="center" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{title}" />
+		
+		<drawtext condition="not{hasicon}++{whatson}" x="0"  valign="center" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{channelnumber} - {channelname}" />
+		<drawtext condition="not{hasicon}++{whatsonnext}" x="0" valign="center" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{title}" />
+		<drawtext condition="not{hasicon}++{whatsonnow}" x="0" valign="center" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{title}" />
+		<drawtext condition="not{hasicon}++{whatsonfavorites}" x="{width(menuicon)}" valign="center" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{title}" />
+		
+		
+	</area>
+</header>
+
+
+
+<scrollbar>
+		<area x="{areawidth}/{areawidth}*2" y="{areaheight}/4.46" width="{areawidth}/{areawidth}*29" height="{areaheight}/1.81" layer="2">
+			<drawrectangle x="{areawidth}/{areawidth}*5" y="{areaheight} * {offset} / 1000" width="{areawidth}/1.3" height="{areaheight} * {height} / 1000" color="{clrDarkGrey}" />
+		</area>
+</scrollbar>
+	
+<menuitems x="0" y="18%" orientation="vertical" width="100%" height="65%"  numlistelements="10">
+	
+<listelement>
+	<area x="2%" width="67%" layer="3">
+		<drawimage  condition="{current}" name="glass_fg_1314x66_current" imagetype="skinpart" path="glass_fg_1314x66_current" x="0" y="0" width="{areawidth}" height="{areaheight}"/>	
+		<drawimage condition="not{current}" name="glass_fg_1314x66" imagetype="skinpart" path="glass_fg_1314x66" x="0" y="0" width="{areawidth}" height="{areaheight}"/>
+	</area>
+         
+			
+<!-- WHATSON -->
+	<!-- <fill color="{clrBlue}" /> -->
+	<area condition="{whatson} ++ not{separator}" x="2%" width="18%" layer="4">
+	
+		<drawimage name="timerfull" condition="not{current}++{timerfull}++not{running}" imagetype="icon" path="timer" x="5%" width="0.6*{areaheight}" height="0.6*{areaheight}" valign="center" />
+      	<drawimage name="timerfull" condition="{current}++{timerfull}++not{running}" imagetype="icon" path="timer" x="5%" width="0.7*{areaheight}" height="0.7*{areaheight}" valign="center" />
+      	
+		<drawimage name="timerfullrun" condition="not{current}++{timerfull}++{running}" imagetype="icon" path="running_rec" x="5%" width="0.6*{areaheight}" height="0.6*{areaheight}" valign="center" />	
+		<drawimage name="timerfullrun" condition="{current}++{timerfull}++{running}" imagetype="icon" path="running_rec" x="5%" width="0.7*{areaheight}" height="0.7*{areaheight}" valign="center" />	
+	
+	
+		<drawimage name="running" condition="not{current}++{running}" imagetype="icon" path="running" x="5%" width="0.6*{areaheight}" height="0.6*{areaheight}" valign="center" />
+		<drawimage name="running" condition="{current}++{running}" imagetype="icon" path="running" x="5%" width="0.7*{areaheight}" height="0.7*{areaheight}" valign="center" />
+		
+		<drawtext condition="not{current}" valign="center" name="date" x="{posx(running)}*2++{width(timerfull)}/0.75" font="{vdrOsd}" fontsize="55%" color="{clrGrey}" text="{day}{daynumeric} - {start}" />		
+		<drawtext condition="{current}" valign="center" name="date" x="{posx(running)}*2++{width(timerfull)}/1.1" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{day}{daynumeric} - {start}" />		
+		
+	</area>
+
+	<areascroll condition="{whatson}++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="20%" width="48%" layer="5">	
+		<drawtext condition="not{current}" name="menutext" x="0" valign="center" align="left" font="{vdrOsd}" fontsize="55%" color="{clrGrey}" text=" {title}" />
+		<drawtext condition="{current}" name="menutext" x="0" valign="center" align="left" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text=" {title}" />
+ 
+	</areascroll>
+		
+			
+<!-- WHATSONNOW -->
+	<area condition="{whatsonnow} ++ not{separator}" x="2%" width="26%" layer="4">
+		<drawimage name="running" condition="not{current}++{running}" imagetype="icon" path="running" x="5%" width="0.6*{areaheight}" height="0.6*{areaheight}" valign="center" />
+		<drawimage name="running" condition="{current}++{running}" imagetype="icon" path="running" x="4%" width="0.7*{areaheight}" height="0.7*{areaheight}" valign="center" />
+		
+		<drawimage name="timerfullrun" condition="not{current}++{timerfull}++{running}" imagetype="icon" path="running_rec" x="5%" width="0.6*{areaheight}" height="0.6*{areaheight}" valign="center" />	
+		<drawimage name="timerfullrun" condition="{current}++{timerfull}++{running}" imagetype="icon" path="running_rec" x="4%" width="0.7*{areaheight}" height="0.7*{areaheight}" valign="center" />	
+	
+		
+		<drawimage name="logo"  condition="not{current}++{channellogoexists}" imagetype="channellogo" path="{channelid}" x="{posx(running)}*2++{width(running)}" valign="center" width="{areawidth}/4" height="50%" />
+        <drawimage name="logo" condition="{current}++{channellogoexists}" imagetype="channellogo" path="{channelid}" x="{posx(running)}*1.5++{width(running)}" valign="center" width="{areawidth}/3.5" height="70%" />
+       
+		
+		<drawtext condition="not{current}" name="date" x="{posx(logo)}++{width(logo)}*1.3" valign="center" font="{vdrOsd}" fontsize="55%" color="{clrGrey}" text="{day}{daynumeric} - {start}" />		
+		<drawtext condition="{current}" name="date" x="{posx(logo)}++{width(logo)}*1.2" valign="center" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{day}{daynumeric} - {start}" />		
+		
+		
+		<drawtext name="notlogo" condition="not{channellogoexists}" x="{posx(logo)}+{width(logo)}/2-{width(notlogo)}/2" valign="center" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{channelnumber}" /> 
+	
+	</area>
+
+	<areascroll condition="{whatsonnow} ++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="29%" width="39%" layer="4">	
+			<drawtext condition="not{current}" name="menutext" x="0" valign="center" align="left" font="{vdrOsd}" fontsize="55%" color="{clrGrey}" text="{title}" />
+			<drawtext condition="{current}" name="menutext" x="0" valign="center" align="left" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{title}" />
+	
+	</areascroll>
+		
+			
+			
+<!--<fill color="{clrRed}" /> WHATSONNEXT  -->
+	<area condition="{whatsonnext} ++ not{separator}" x="2%" width="26%" layer="4">
+	
+			<drawimage name="timerfull" condition="not{current}++{timerfull}++not{running}" imagetype="icon" path="timer" x="5%" width="0.6*{areaheight}" height="0.6*{areaheight}" valign="center" />
+			<drawimage name="timerfull" condition="{current}++{timerfull}++not{running}" imagetype="icon" path="timer" x="4%" width="0.7*{areaheight}" height="0.7*{areaheight}" valign="center" />
+   
+		<drawimage name="logo"  condition="not{current}++{channellogoexists}" imagetype="channellogo" path="{channelid}" x="{posx(timerfull)}*2++{width(timerfull)}" valign="center" width="{areawidth}/4" height="50%" />
+        <drawimage name="logo" condition="{current}++{channellogoexists}" imagetype="channellogo" path="{channelid}" x="{posx(timerfull)}*1.5++{width(timerfull)}" valign="center" width="{areawidth}/3.5" height="70%" />
+       
+		
+		<drawtext condition="not{current}" name="date" x="{posx(logo)}++{width(logo)}*1.3" valign="center" font="{vdrOsd}" fontsize="55%" color="{clrGrey}" text="{day}{daynumeric} - {start}" />		
+		<drawtext condition="{current}" name="date" x="{posx(logo)}++{width(logo)}*1.2" valign="center" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{day}{daynumeric} - {start}" />		
+		
+		
+		<drawtext name="notlogo" condition="not{channellogoexists}" x="{posx(logo)}+{width(logo)}/2-{width(notlogo)}/2" valign="center" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{channelnumber}" /> 
+	</area>
+	
+	<areascroll condition="{whatsonnext} ++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="29%" width="39%" layer="4">	
+			<drawtext condition="not{current}" name="menutext" x="0" valign="center" align="left" font="{vdrOsd}" fontsize="55%" color="{clrGrey}" text="{title}" />
+			<drawtext condition="{current}" name="menutext" x="0" valign="center" align="left" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{title}" />
+	
+	</areascroll>
+	
+	
+	
+	<!-- WHATSONFAVORITES  -->
+	<area condition="{whatsonfavorites} ++ not{separator}" x="2%" width="26%" layer="4">	
+			<drawimage name="timerfull" condition="not{current}++{timerfull}++not{running}" imagetype="icon" path="timer" x="5%" width="0.6*{areaheight}" height="0.6*{areaheight}" valign="center" />
+			<drawimage name="timerfull" condition="{current}++{timerfull}++not{running}" imagetype="icon" path="timer" x="4%" width="0.7*{areaheight}" height="0.7*{areaheight}" valign="center" />
+   
+			<drawimage name="logo"  condition="not{current}++{channellogoexists}" imagetype="channellogo" path="{channelid}" x="{posx(timerfull)}*2++{width(timerfull)}" valign="center" width="{areawidth}/4" height="50%" />
+			<drawimage name="logo" condition="{current}++{channellogoexists}" imagetype="channellogo" path="{channelid}" x="{posx(timerfull)}*1.5++{width(timerfull)}" valign="center" width="{areawidth}/3.5" height="70%" />
+		   
+		
+			<drawtext condition="not{current}" name="date" x="{posx(logo)}++{width(logo)}*1.3" valign="center" font="{vdrOsd}" fontsize="55%" color="{clrGrey}" text="{day}{daynumeric} - {start}" />		
+			<drawtext condition="{current}" name="date" x="{posx(logo)}++{width(logo)}*1.2" valign="center" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{day}{daynumeric} - {start}" />		
+			
+		
+			<drawtext name="notlogo" condition="not{channellogoexists}" x="{posx(logo)}+{width(logo)}/2-{width(notlogo)}/2" valign="center" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{channelnumber}" /> 
+	</area>
+
+	<areascroll condition="{whatsonfavorites} ++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="29%" width="39%" layer="4">
+			<drawtext condition="not{current}" name="menutext" x="0" valign="center" align="left" font="{vdrOsd}" fontsize="55%" color="{clrGrey}" text="{title}" />
+			<drawtext condition="{current}" name="menutext" x="0" valign="center" align="left" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{title}" />
+
+    </areascroll>
+	
+<!-- separator -->
+<area condition="{separator}++{whatson}" x="2%" width="60%" layer="4">
+      <drawtext x="1%" y="0"  align="center" valign="center" font="{vdrOsd}" fontsize="65%" color="{clrTheme}" text=" {title}" />
+ </area>	
+ <area condition="{separator}++not{whatson}" x="3%" width="60%" layer="4">
+      <drawtext x="1%" y="0" align="center" valign="center" font="{vdrOsd}" fontsize="65%" color="{clrTheme}" text="{title}" />
+ </area>	
+</listelement>
+    	
+<currentelement delay="250" fadetime="{fadeTime}">
+<!-- text infobar -->
+	<area x="72%" y="12%" width="26%" height="30%" layer="2">
+	
+        <drawtext name="title" x="0" y="0" font="{vdrOsd}" width="{areawidth}" fontsize="25%" color="{clrTheme}" text="{title}" />
+		<drawtext name="shorttext" x="0" y="{height(title)}" font="{vdrOsd}" width="{areawidth}" fontsize="20%" color="{clrWhite}" text="{shorttext}" />
+		
+        <drawtext condition="{running}" name="start" x="0" y="{posy(shorttext)}+{height(title)}+{height(title)}/8" font="{vdrOsd}" fontsize="15%" color="{clrWhite}" text="{start}" />
+        
+		
+	    <drawrectangle condition="{running}" name="sb2" x="{width(start)}+{width(start)}/8" y="{posy(start)}+{height(start)}/2" width="{areawidth}/2" height="1" color="{clrTheme}" />
+        <drawrectangle condition="{running}" name="sb2" x="{width(start)}+{width(start)}/8" y="{posy(start)}+{height(start)}/2-2" width="{areawidth}/2 * {elapsed} / {duration} - 20 * {elapsed} / {duration}" height="5" color="{clrTheme}" />
+   	
+		
+		<drawtext condition="{running}" name="stop" x="{width(sb2)}+{width(start)}+{width(start)}/4"  y="{posy(shorttext)}+{height(title)}+{height(title)}/8" font="{vdrOsd}" fontsize="15%" color="{clrWhite}" text="{stop}" />
+        <drawtext condition="not{running}" x="0" y="{posy(shorttext)}+{height(title)}+{height(title)}/8" font="{vdrOsd}" fontsize="15%" color="{clrWhite}" text="{start} - {stop} ({duration} min)" />
+		
+	</area>
+
+    <areascroll  mode="forthandback" orientation="vertical" delay="1000" scrollspeed="medium" x="72%" y="32%" width="26%" height="70%" layer="2">
+		<drawimage  condition="{hasposter}" name="poster" imagetype="image" path="{posterpath}" x="0" y="0" align="right" valign="top" width="{areaheight} * 0.5  * {posterwidth} / {posterheight}" height="{areaheight} * 0.5"/>	
+	
+		<drawtextbox x="0" y="0" width="95%" height="{areaheight} - {posy(poster)}" float="topright" floatwidth="{width(poster)} + 10" floatheight="{height(poster)} + 20"  font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{description}" />
+	</areascroll>
+
+			
+<!-- channellogo  -->
+	<area x="72%" y="0%" width="26%" height="30%" layer="3">
+	          <drawtext condition="not{channellogoexists}" align="center" valign="center" font="{vdrOsd}" fontsize="50%" color="{clrWhite}" text="{channelnumber}" />
+		      <drawimage cache="true" condition="{channellogoexists}" imagetype="channellogo" path="{channelid}" align="left" valign="top" width="{areawidth}/3" height="{areaheight}/3" />
+    
+	</area> 
+		
+	
+		
+
+</currentelement>
+</menuitems>	
+
+
+
+</menuschedules>

@@ -1,0 +1,36 @@
+<menusetup x="0" y="0" width="100%" height="100%" fadetime="{fadeTime}">
+
+<background>
+
+		
+</background>
+
+
+<scrollbar>
+    <area x="{areawidth}/{areawidth}*2" y="{areaheight}/4.46" width="{areawidth}/{areawidth}*29" height="{areaheight}/1.81" layer="2">
+		<drawrectangle x="{areawidth}/{areawidth}*5" y="{areaheight} * {offset} / 1000" width="{areawidth}/1.3" height="{areaheight} * {height} / 1000" color="{clrDarkGrey}" />
+    </area> 
+</scrollbar>
+    
+<menuitems x="0" y="18%" orientation="vertical" width="100%" height="65%" numlistelements="8">
+
+<listelement>
+<!--active item -->
+	<area x="2%" width="40%" layer="3">
+		<drawimage  condition="{current}" name="glass_fg_728x66_current" imagetype="skinpart" path="glass_fg_728x66_current" x="0" y="0" width="{areawidth}" height="{areaheight}"/>
+		<drawimage condition="not{current}" name="glass_fg_728x66" imagetype="skinpart" path="glass_fg_728x66" x="0" y="0" width="{areawidth}" height="{areaheight}"/>	
+	</area>
+					 
+	
+	<areascroll scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="4%" width="36%" layer="4">
+		<drawtext condition="not{current}" name="menutext" x="0" valign="center" align="center" font="{vdrOsd}" fontsize="55%" color="{clrGrey}" text="{label}" />
+		<drawtext condition="{current}" name="menutext" x="0" valign="center" align="center" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{label}" />
+	</areascroll>
+
+</listelement>
+     
+</menuitems>
+
+
+	
+</menusetup>

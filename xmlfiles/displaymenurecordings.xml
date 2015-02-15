@@ -1,0 +1,145 @@
+<menurecordings x="0" y="0" width="100%" height="100%" fadetime="{fadeTime}">
+<background>
+<!-- opacity background -->
+		<area condition="eq({opacity}, 3)"  x="0" y="0" width="100%" height="100%" layer="1">
+			<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}" color="{clrBlack}" />
+		</area>
+		<area condition="eq({opacity}, 2)"  x="0" y="0" width="100%" height="100%" layer="1">
+			<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}" color="{clrTransBlack}" />
+		</area>
+		<area condition="eq({opacity}, 1)"  x="0" y="0" width="100%" height="100%" layer="1">
+			<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}" color="{clrSemiTransBlack}" />
+		</area>
+		
+	<!-- header background -->
+		<area x="0" y="2%" width="100%" height="8%" layer="1">
+			<drawimage name="glass_bg_1500x100" imagetype="skinpart" path="glass_bg_1500x100" x="0" y="0" width="{areawidth}" height="{areaheight}"  />
+		</area>
+
+	<!-- date background -->
+		<area x="69%" y="2%" width="30%" height="8%" layer="2">
+			<drawimage name="glass_fg_date" imagetype="skinpart" path="glass_fg_date" x="0" y="0" width="{areawidth}" height="{areaheight}"/>
+		</area>
+		
+	<!-- list background -->
+		<area  x="0" y="14%" width="70%" height="72%" layer="2">
+			<drawimage name="glass_bg_menu_1232x1000" imagetype="skinpart" path="glass_bg_menu_1232x1000" x="0" y="0" width="{areawidth}" height="{areaheight}"  />
+		</area>
+		
+	<!-- button background -->
+		<area x="0%" y="90%" width="100%" height="8%" layer="1">
+			<drawimage name="glass_bg_1500x100" imagetype="skinpart" path="glass_bg_1500x100" x="0" y="0" width="{areawidth}" height="{areaheight}"  />
+	    </area>
+	
+	<!-- detail background -->
+		<area condition="eq({showDetailTimers},1)" x="71%" y="21%" width="29%" height="65%" layer="1">
+			<drawimage name="glass_bg_detail" imagetype="skinpart" path="glass_bg_detail" x="0%" y="0%" width="{areawidth}" height="{areaheight}"  />	
+		</area>	
+	<!-- diskusage -->
+		<area x="71%" y="11%" width="28%" height="8%" layer="1">
+			<drawimage name="glass_bg_discusage" imagetype="skinpart" path="glass_bg_discusage" x="0" y="0%" width="{areawidth}" height="{areaheight}"  />	
+		</area>
+		<area x="71%" y="11%" width="28%" height="8%" layer="2">
+			<drawimage name="glass_fg_discusage" imagetype="skinpart" path="glass_fg_discusage" x="3%" y="10%" width="{areawidth}*0.95" height="{areaheight}*0.85"  />	
+		</area>
+</background>
+<header>
+	<area x="1%" y="3%" width="70%" height="6%" layer="2">
+		<drawimage name="menuicon" imagetype="menuicon" path="{icon}" x="0" y="0" valign="center" width="{areaheight}" height="{areaheight}"/>
+		<drawtext  name="title" x="{posx(menuicon)}+{width(menuicon)}" valign="center" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{title}" />
+	</area>
+
+	<!-- discusage -->
+	<area x="71%" y="11%" width="28%" height="8%" layer="4">
+		<drawtext name="used" x="7%" valign="center" width="{areawidth}" font="{vdrOsd}" fontsize="45%" color="{clrWhite}" text="({vdrusagestring})" /> 
+	</area>
+	<area condition="{discalert}" x="71%" y="11%" width="28%" height="8%" layer="3">
+			<drawimage name="glass_fg_discusage_alert" imagetype="skinpart" path="glass_fg_discusage_alert" x="3%" y="10%" width="{areawidth}*0.95" height="{areaheight}*0.85"  />		
+	</area>
+	<area x="71%" y="11%" width="28%" height="8%" layer="3">
+		<drawimage imagetype="icon" path="ico_discusage" align="right" valign="center" y="0" width="{areawidth}/5" height="{areaheight}/1.5"/>
+	</area>
+</header> 
+
+
+<scrollbar>
+		<area x="{areawidth}/{areawidth}*2" y="{areaheight}/4.46" width="{areawidth}/{areawidth}*29" height="{areaheight}/1.81" layer="2">
+			<drawrectangle x="{areawidth}/{areawidth}*5" y="{areaheight} * {offset} / 1000" width="{areawidth}/1.3" height="{areaheight} * {height} / 1000" color="{clrDarkGrey}" />
+		</area>
+</scrollbar>
+
+<menuitems x="0" y="18%" orientation="vertical" width="100%" height="65%" numlistelements="10">
+
+<listelement >
+		<area x="2%" width="67%" layer="3">
+		<drawimage  condition="{current}" name="glass_fg_1314x66_current" imagetype="skinpart" path="glass_fg_1314x66_current" x="0" y="0" width="{areawidth}" height="{areaheight}"/>	
+		<drawimage condition="not{current}" name="glass_fg_1314x66" imagetype="skinpart" path="glass_fg_1314x66" x="0" y="0" width="{areawidth}" height="{areaheight}"/>
+	</area>
+
+
+<!-- recording item -->
+	<areascroll condition="not{current}"  scrollelement="title" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="2%" width="68%" layer="4">
+		    
+		<drawimage condition="{folder}++not{new}" name="recfolder" imagetype="icon" path="recfolder" x="2%" width="0.5*{areaheight}" height="0.6*{areaheight}" valign="center" />
+		<drawimage condition="{folder}++{new}" name="recfoldernew" imagetype="icon" path="recfoldernew" x="2%" width="0.5*{areaheight}" height="0.6*{areaheight}" valign="center" />
+		<drawtext condition="{folder}" name="title" x="{posx(recfolder)}*1.5++{width(recfolder)}" valign="center" font="{vdrOsd}" fontsize="55%" color="{clrGrey}" text="{name}" />	
+		<drawtext condition="{folder}" name="numrecordings" x="{posx(title)}*1.5++{width(title)}" valign="center"  font="{vdrOsd}" fontsize="55%" color="{clrGrey}" text="({numrecordingsfolder} / {newrecordingsfolder})" />
+			
+	
+		<drawimage condition="not{folder}++{new}" name="recnew" imagetype="icon" path="recnew" x="2%" width="0.6*{areaheight}" height="0.6*{areaheight}" valign="center" />
+		<drawimage condition="not{folder}++not{new}++{cutted}" name="cut" imagetype="icon" path="cut" x="2%" width="0.6*{areaheight}" height="0.6*{areaheight}" valign="center" />
+		<drawimage condition="not{folder}++not{new}++not{cutted}" name="recitem" imagetype="icon" path="recitem" x="2%" width="0.6*{areaheight}" height="0.6*{areaheight}" valign="center" />
+	
+		<drawtext condition="not{folder}" name="datetime" x="{posx(recfolder)}*1.5++{width(recfolder)}" valign="center" font="{vdrOsd}" fontsize="55%" color="{clrGrey}" text="{date} {time}" />        
+		<drawtext condition="not{folder}" name="duration" x="35%" valign="center" font="{vdrOsd}" fontsize="55%" color="{clrGrey}" text="{duration}" />        
+		
+		<drawtext condition="not{folder}" name="title" x="45%" valign="center" font="{vdrOsd}" fontsize="55%" color="{clrGrey}" text="{name}" />
+	
+	</areascroll>
+	<areascroll condition="{current}"  scrollelement="title" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="2%" width="68%" layer="4">
+		    
+		<drawimage condition="{folder}++not{new}" name="recfolder" imagetype="icon" path="recfolder" x="1%" width="0.7*{areaheight}" height="0.8*{areaheight}" valign="center" />
+		<drawimage condition="{folder}++{new}" name="recfoldernew" imagetype="icon" path="recfoldernew" x="1%" width="0.7*{areaheight}" height="0.8*{areaheight}" valign="center" />
+		<drawtext condition="{folder}" name="title" x="{posx(recfolder)}*1.5++{width(recfolder)}" valign="center" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{name}" />	
+		<drawtext condition="{folder}" name="numrecordings" x="{posx(title)}*1.5++{width(title)}" valign="center"  font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="({numrecordingsfolder} / {newrecordingsfolder})" />
+			
+	
+		<drawimage condition="not{folder}++{new}" name="recnew" imagetype="icon" path="recnew" x="1%" width="0.7*{areaheight}" height="0.7*{areaheight}" valign="center" />
+		<drawimage condition="not{folder}++not{new}++{cutted}" name="cut" imagetype="icon" path="cut" x="1%" width="0.7*{areaheight}" height="0.7*{areaheight}" valign="center" />
+		<drawimage condition="not{folder}++not{new}++not{cutted}" name="recitem" imagetype="icon" path="recitem" x="1%" width="0.7*{areaheight}" height="0.7*{areaheight}" valign="center" />
+	
+		<drawtext condition="not{folder}" name="datetime" x="{posx(recfolder)}*1.5++{width(recfolder)}" valign="center" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{date} {time}" />        
+		<drawtext condition="not{folder}" name="duration" x="38%" valign="center" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{duration}" />        
+		
+		<drawtext condition="not{folder}" name="title" x="45%" valign="center" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{name}" />
+	
+	</areascroll>
+</listelement>
+
+
+
+<currentelement delay="250" fadetime="{fadeTime}">
+
+	<area condition="eq({showDetailTimers},1)" x="72%" y="7%" width="26%" height="30%" layer="2">
+	
+        <drawtext name="title" x="0" y="0" font="{vdrOsd}" width="{areawidth}" fontsize="25%" color="{clrTheme}" text="{name}" />
+		<drawtext name="shorttext" x="0" y="{height(title)}" font="{vdrOsd}" width="{areawidth}" fontsize="20%" color="{clrWhite}" text="{shorttext}" />
+		
+         <drawtext condition="not{running}" x="0" y="{posy(shorttext)}+{height(title)}+{height(title)}/8" font="{vdrOsd}" fontsize="15%" color="{clrWhite}" text="{date} - {time}, {duration}min" />
+		
+	</area>
+
+    <areascroll condition="eq({showDetailTimers},1)" mode="forthandback" orientation="vertical" delay="1000" scrollspeed="medium" x="72%" y="29%" width="26%" height="75%" layer="2">
+		<drawimage  condition="{hasposter}" name="poster" imagetype="image" path="{posterpath}" x="0" y="0" align="right" valign="top" width="{areaheight} * 0.5  * {posterwidth} / {posterheight}" height="{areaheight} * 0.5"/>	
+		<drawtextbox x="0" y="0" width="95%" height="{areaheight} - {posy(poster)}" float="topright" floatwidth="{width(poster)} + 10" floatheight="{height(poster)} + 20"  font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{description}" />
+	</areascroll>
+
+
+
+</currentelement>
+</menuitems>
+
+	
+	
+	
+</menurecordings>

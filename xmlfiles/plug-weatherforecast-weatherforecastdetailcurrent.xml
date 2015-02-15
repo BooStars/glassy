@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE menuplugin SYSTEM "../../../dtd/displaymenuplugin.dtd">
+
+<menuplugin x="0" y="0" width="100%" height="100%" fadetime="{fadeTime}">
+<background>
+	<!-- opacity background -->
+		<area condition="eq({opacity}, 3)"  x="0" y="0" width="100%" height="100%" layer="1">
+			<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}" color="{clrBlack}" />
+		</area>
+		<area condition="eq({opacity}, 2)"  x="0" y="0" width="100%" height="100%" layer="1">
+			<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}" color="{clrTransBlack}" />
+		</area>
+		<area condition="eq({opacity}, 1)"  x="0" y="0" width="100%" height="100%" layer="1">
+			<drawrectangle x="0" y="0" width="{areawidth}" height="{areaheight}" color="{clrSemiTransBlack}" />
+		</area>
+		
+
+	<!-- header background -->
+		<area x="0" y="2%" width="100%" height="8%" layer="1">
+			<drawimage name="glass_bg_1500x100" imagetype="skinpart" path="glass_bg_1500x100" x="0" y="0" width="{areawidth}" height="{areaheight}"  />
+		</area>
+		
+<!-- date background -->
+		<area x="69%" y="2%" width="30%" height="8%" layer="2">
+			<drawimage name="glass_fg_date" imagetype="skinpart" path="glass_fg_date" x="0" y="0" width="{areawidth}" height="{areaheight}"/>
+		</area>
+		
+	<!-- list background -->
+		<area  x="0" y="14%" width="70%" height="72%" layer="2">
+			<drawimage name="glass_bg_menu_1232x1000" imagetype="skinpart" path="glass_bg_menu_1232x1000" x="0" y="0" width="{areawidth}" height="{areaheight}"  />
+		</area>	
+	<!-- button background -->
+		<area x="0%" y="90%" width="100%" height="8%" layer="1">
+			<drawimage name="glass_bg_1500x100" imagetype="skinpart" path="glass_bg_1500x100" x="0" y="0" width="{areawidth}" height="{areaheight}"  />
+	    </area>
+		
+	<!-- detail background -->
+		<area x="72%" y="14%" width="28%" height="72%" layer="1">
+			<drawimage name="glass_bg_detail" imagetype="skinpart" path="glass_bg_detail" x="0%" y="0%" width="{areawidth}" height="{areaheight}"  />	
+		</area>
+		
+</background>
+
+<scrollbar>
+		<area x="{areawidth}/{areawidth}*2" y="{areaheight}/4.46" width="{areawidth}/{areawidth}*29" height="{areaheight}/1.81" layer="1">
+			<drawrectangle x="{areawidth}/{areawidth}*5" y="{areaheight} * {offset} / 1000" width="{areawidth}/1.3" height="{areaheight} * {height} / 1000" color="{clrDarkGrey}" />
+		</area>
+</scrollbar>
+
+<detailheader>
+	<area x="72%" y="14%" width="28%" height="72%" layer="2">
+		<drawimage imagetype="icon" path="{icon}" x="0" y="0" align="center" valign="top" width="{areaheight}/2.5" height="{areaheight}/2"/>
+	</area>
+	<area x="72%" y="14%" width="27%" height="72%" layer="2">
+		<drawtext name="summary" x="0" y="0" align="center" valign="center" font="{vdrOsd}" fontsize="10%" color="{clrWhite}" text="{summary}" />
+		<drawtext  name="temp" x="0"  y="{posy(summary)}+{height(summary)}" align="center" font="{vdrOsd}" fontsize="10%" color="{clrWhite}" text="{temperature}°C" />
+	</area>
+</detailheader>
+
+    <tab name="current" x="3%" y="16%" width="76%" height="50%" layer="3"  scrollheight="{areaheight}/4">
+        <drawtext x="0" y="0" font="{vdrOsd}" fontsize="10%" color="{clrTheme}" text="{tr(conditions)} {tr(for)} {city}" />
+        <drawtext x="0" y="8%" font="{vdrOsd}" fontsize="8%" color="{clrWhite}" text="({latitude}, {longitude})" />
+        <drawtext x="0" y="18%" font="{vdrOsd}" fontsize="8%" color="{clrWhite}" text="{summary}" />
+
+        <drawtext x="0" y="28%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{tr(temp)}: {temperature}°C" />
+        <drawtext x="0" y="34%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{tr(apparenttemp)}: {apparenttemperature}°C" />
+        <drawtext x="0" y="40%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{tr(todaymin)}: {mintemperature}°C" />
+        <drawtext x="0" y="46%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{tr(todaymax)}: {maxtemperature}°C" />
+        <drawtext x="0" y="52%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{tr(precipitationprobability)}: {precipitationprobability} %" />
+        <drawtext x="0" y="58%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{tr(precipitationintensity)}: {precipitationintensity} l/qm" />
+        <drawtext x="0" y="64%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{tr(humidity)}: {humidity} %" />
+        <drawtext x="0" y="70%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{tr(windspeed)}: {windspeed} km/h aus {windbearingstring}" />
+        <drawtext x="0" y="76%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{tr(visibility)}: {visibility} km" />
+        <drawtext x="0" y="82%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{tr(cloudcover)}: {cloudcover} %" />
+        <drawtext x="0" y="88%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{tr(pressure)}: {pressure} HPa" />
+        <drawtext x="0" y="94%" font="{vdrOsd}" fontsize="6%" color="{clrWhite}" text="{tr(ozone)}: {ozone} DU" />
+    </tab>
+</menuplugin>
