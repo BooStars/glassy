@@ -96,7 +96,7 @@
 		<drawtext condition="not{folder}" name="title" x="45%" valign="center" font="{vdrOsd}" fontsize="55%" color="{clrGrey}" text="{name}" />
 	
 	</areascroll>
-	<areascroll condition="{current}"  scrollelement="title" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="2%" width="68%" layer="4">
+	<areascroll condition="{current}"  scrollelement="title" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="2%" width="66%" layer="4">
 		    
 		<drawimage condition="{folder}++not{new}" name="recfolder" imagetype="icon" path="recfolder" x="1%" width="0.7*{areaheight}" height="0.8*{areaheight}" valign="center" />
 		<drawimage condition="{folder}++{new}" name="recfoldernew" imagetype="icon" path="recfoldernew" x="1%" width="0.7*{areaheight}" height="0.8*{areaheight}" valign="center" />
