@@ -93,7 +93,7 @@
 		
 	</area>
 
-	<areascroll condition="{whatson}++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="20%" width="48%" layer="5">	
+	<areascroll condition="{whatson}++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="22%" width="46%" layer="5">	
 		<drawtext condition="not{current}" name="menutext" x="0" valign="center" align="left" font="{vdrOsd}" fontsize="55%" color="{clrGrey}" text=" {title}" />
 		<drawtext condition="{current}" name="menutext" x="0" valign="center" align="left" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text=" {title}" />
  
@@ -121,7 +121,7 @@
 	
 	</area>
 
-	<areascroll condition="{whatsonnow} ++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="29%" width="39%" layer="4">	
+	<areascroll condition="{whatsonnow} ++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="31%" width="37%" layer="4">	
 			<drawtext condition="not{current}" name="menutext" x="0" valign="center" align="left" font="{vdrOsd}" fontsize="55%" color="{clrGrey}" text="{title}" />
 			<drawtext condition="{current}" name="menutext" x="0" valign="center" align="left" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{title}" />
 	
@@ -146,7 +146,7 @@
 		<drawtext name="notlogo" condition="not{channellogoexists}" x="{posx(logo)}+{width(logo)}/2-{width(notlogo)}/2" valign="center" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{channelnumber}" /> 
 	</area>
 	
-	<areascroll condition="{whatsonnext} ++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="29%" width="39%" layer="4">	
+	<areascroll condition="{whatsonnext} ++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="31%" width="37%" layer="4">	
 			<drawtext condition="not{current}" name="menutext" x="0" valign="center" align="left" font="{vdrOsd}" fontsize="55%" color="{clrGrey}" text="{title}" />
 			<drawtext condition="{current}" name="menutext" x="0" valign="center" align="left" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{title}" />
 	
@@ -170,7 +170,7 @@
 			<drawtext name="notlogo" condition="not{channellogoexists}" x="{posx(logo)}+{width(logo)}/2-{width(notlogo)}/2" valign="center" font="{vdrOsd}" fontsize="80%" color="{clrWhite}" text="{channelnumber}" /> 
 	</area>
 
-	<areascroll condition="{whatsonfavorites} ++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="29%" width="39%" layer="4">
+	<areascroll condition="{whatsonfavorites} ++ not{separator}" scrollelement="menutext" mode="carriagereturn" orientation="horizontal" delay="1000" scrollspeed="medium" x="31%" width="37%" layer="4">
 			<drawtext condition="not{current}" name="menutext" x="0" valign="center" align="left" font="{vdrOsd}" fontsize="55%" color="{clrGrey}" text="{title}" />
 			<drawtext condition="{current}" name="menutext" x="0" valign="center" align="left" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{title}" />
 

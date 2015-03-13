@@ -109,9 +109,9 @@
 		<drawimage condition="not{folder}++not{new}++not{cutted}" name="recitem" imagetype="icon" path="recitem" x="1%" width="0.7*{areaheight}" height="0.7*{areaheight}" valign="center" />
 	
 		<drawtext condition="not{folder}" name="datetime" x="{posx(recfolder)}*1.5++{width(recfolder)}" valign="center" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{date} {time}" />        
-		<drawtext condition="not{folder}" name="duration" x="38%" valign="center" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{duration}" />        
+		<drawtext condition="not{folder}" name="duration" x="39%" valign="center" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{duration}" />        
 		
-		<drawtext condition="not{folder}" name="title" x="45%" valign="center" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{name}" />
+		<drawtext condition="not{folder}" name="title" x="46%" valign="center" font="{vdrOsd}" fontsize="65%" color="{clrWhite}" text="{name}" />
 	
 	</areascroll>
 </listelement>
